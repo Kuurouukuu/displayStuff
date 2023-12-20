@@ -1,11 +1,3 @@
-import base64
-
-def display_image(image_path):
-    with open(image_path, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
-    return f'<img src="data:image/png;base64,{encoded_string}" alt="Image" class="image">'
-
-html = '''
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,11 +34,17 @@ html = '''
 		.show {
 			display: block;
 		}
+		button {
+			margin-bottom: 20px;
+		}
 	</style>
 </head>
 <body>
 	<button id="toggleButton" onclick="toggleImages()">Hide Images</button>
 	<div class="container">
+		<img src="image1.png" alt="Image 1" width="300" height="200">
+		<img src="image2.png" alt="Image 2" width="400" height="300">
+		<img src="image3.png" alt="Image 3" width="500" height="400">
 	</div>
 	<script>
 		function toggleImages() {
@@ -56,18 +54,12 @@ html = '''
 				image.classList.toggle('show');
 			});
 			const button = document.querySelector('#toggleButton');
-			if (button.innerHTML == 'Hide Images') {
+			if (button.innerHTML === 'Hide Images') {
 				button.innerHTML = 'Show Images';
 			} else {
 				button.innerHTML = 'Hide Images';
 			}
 		}
-		container = document.querySelector('.container')
-		images = ['image1.png', 'image2.png', 'image3.png']
-		for image in images:
-			container.innerHTML += display_image(image)
 	</script>
 </body>
 </html>
-'''
-print(html)
