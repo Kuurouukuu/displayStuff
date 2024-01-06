@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .image-container {
+    display: inline-block;
+    margin-right: 10px;
+  }
+</style>
+<script>
+  function toggleImages() {
+    var images = document.getElementsByClassName("image-container");
+    for (var i = 0; i < images.length; i++) {
+      images[i].style.display = images[i].style.display === "none" ? "inline-block" : "none";
+    }
+  }
+</script>
+</head>
+<body>
+  <button onclick="toggleImages()">Hide/Show</button>
+  <div>
+    <div class="image-container">
+      <img src="image1.jpg" alt="Image 1" width="100" height="100">
+    </div>
+    <div class="image-container">
+      <img src="image2.jpg" alt="Image 2" width="100" height="100">
+    </div>
+    <div class="image-container">
+      <img src="image3.jpg" alt="Image 3" width="100" height="100">
+    </div>
+  </div>
+</body>
+</html>
